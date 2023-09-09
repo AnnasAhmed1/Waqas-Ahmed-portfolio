@@ -11,6 +11,7 @@ const Navbar = ({
   activeSection,
   setActiveSection,
   scrollToSection,
+  name,
 }: {
   navs: Array<object>;
   socialLinks: Array<object>;
@@ -19,6 +20,7 @@ const Navbar = ({
   activeSection?: any;
   setActiveSection?: any;
   scrollToSection?: any;
+  name?: string;
 }) => {
   const [navOpen, setNavOpen] = useState(false);
   const [active, setActive] = useState("home");
@@ -32,7 +34,7 @@ const Navbar = ({
           alt="Profile Picture"
           className="w-[180px] border-[8px] rounded-[50%] border-[#343a40]"
         />
-        <h1 className="text-customLight text-2xl">Annas Ahmed</h1>
+        <h1 className="text-customLight text-2xl">{name}</h1>
       </div>
       <nav className="my-10 ">
         <ul className="flex flex-col gap-4">
@@ -75,7 +77,7 @@ const Navbar = ({
     <nav className="hidden w-full z-[999]  max-lg:block bg-[#111418] py-4 px-[20px] fixed max-sm:px-[10px]">
       <div className="flex items-center">
         <h1 className="text-customLight font-[500] flex-1  text-2xl max-md:text-lg m-0">
-          Annas Ahmed
+          {name}
         </h1>
 
         <div className="flex. w-full/ justify-between/ items-center/ px-16/ text-customSemiLight ">
