@@ -15,10 +15,9 @@ import ProjectCard from "@/components/projectCard";
 import Navbar from "@/components/navbar";
 
 // images
-import kardinal from "../assets/projects/kardinal_project.png";
-import afilename from "../assets/projects/afilename_project.png";
-import appswaves from "../assets/projects/appswaves_project.png";
-import fizz from "../assets/projects/fizz_project.png";
+import car_app from "../assets/projects/car_flutter_app.png";
+import greengen from "../assets/projects/green_gen.png";
+// import greengenVideo from "../assets/projects/videos/green_gen.mp4";
 
 // icons
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -29,9 +28,13 @@ import MailIcon from "@mui/icons-material/Mail";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import CallIcon from "@mui/icons-material/Call";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Modal } from "@mui/material";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const navs = [
     { title: "Home", id: "home", active: false },
     { title: "About Me", id: "about", active: false },
@@ -97,24 +100,14 @@ export default function Home() {
   ];
   const projects = [
     {
-      image: fizz,
+      image: car_app,
       liveLink: "https://fizzinnovations-portfolio.vercel.app/",
       githubLink: "Fizzinnovations_portfolio",
     },
     {
-      image: appswaves,
+      image: greengen,
       liveLink: "https://appswaves-3a882.web.app/",
       githubLink: "Appswaves_project",
-    },
-    {
-      image: kardinal,
-      liveLink: "https://kardinal-react-siraj.web.app/",
-      githubLink: "Appswaves_project",
-    },
-    {
-      image: afilename,
-      liveLink: "https://afile-name-siraj.vercel.app/",
-      githubLink: "AfileName-Siraj",
     },
   ];
 
@@ -124,10 +117,10 @@ export default function Home() {
 
   const handleDownloadCV = () => {
     console.log("download");
-    const downloadLink = "/Annas_Ahmed_resume.pdf";
+    const downloadLink = "/resume.pdf";
     const a = document.createElement("a");
     a.href = downloadLink;
-    a.download = "Annas_Ahmed_resume.pdf";
+    a.download = "resume.pdf";
     a.click();
   };
 
@@ -180,6 +173,31 @@ export default function Home() {
   return (
     <>
       <main className="flex">
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          className="flex justify-center items-center border border-customPrimary outline-none bottom-0 absolute/"
+          keepMounted
+          disableScrollLock={true}
+        >
+          <div className="bg-black py-10 px-32 rounded-md outline-none border border-customPrimary">
+            <video
+              style={{
+                objectFit: "contain",
+                // backgroundColor: "var(--dark)",
+                width: "400px",
+                height: "400px",
+              }}
+              controls
+              // width="100%"
+            >
+              <source src="/video1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </Modal>
         <ToastContainer />
         <Navbar
           navs={navs}
@@ -260,50 +278,30 @@ export default function Home() {
                   a {profession}
                 </h1>
                 <p>
-                  A passionate MERN stack developer with a year of freelancing
-                  experience specializing in React.js and Next.js. I have a
-                  profound love for crafting efficient, user-friendly, and
-                  visually appealing web applications. With a solid foundation
-                  in modern web development technologies, I&apos;m dedicated to
-                  transforming ideas into functional, responsive, and engaging
-                  digital experiences.
+                  As a passionate Flutter developer with a year of freelancing
+                  experience, I specialize in creating efficient, user-friendly,
+                  and visually appealing mobile applications. I have a profound
+                  love for crafting engaging digital experiences and
+                  transforming ideas into functional and responsive mobile apps.
                 </p>
                 <p>
-                  Having delved into the world of web development, I&apos;ve not
-                  only acquired technical skills but also developed a keen eye
-                  for detail and a problem-solving mindset. My journey began
-                  with a deep fascination for creating interactive front-end
-                  designs that seamlessly integrate with powerful back-end
-                  functionalities. This drive has led me to explore and master
-                  the React.js and Next.js frameworks, which enable me to build
-                  cutting-edge web applications that provide an exceptional user
-                  experience.
+                  My journey in the world of mobile development began with a
+                  deep fascination for creating interactive user interfaces that
+                  seamlessly integrate with powerful back-end functionalities.
+                  This drive has led me to explore and master the Flutter
+                  framework, which enables me to build cutting-edge mobile
+                  applications that provide an exceptional user experience.
+                </p>
+                <p>
+                  With a solid foundation in modern mobile development
+                  technologies and a keen eye for detail, I am dedicated to
+                  delivering high-quality Flutter applications that captivate
+                  users and bring ideas to life in the mobile space. Whether
+                  it's crafting beautiful UI designs or implementing complex
+                  functionality, I am committed to turning your mobile app
+                  vision into a reality.
                 </p>
               </div>
-              {/* <div>
-                {details.map((detail, index) => {
-                  return (
-                    <li
-                      key={index}
-                      className={`py-3 list-none  border-[#eaeaea] ${
-                        index === details.length - 1 ? "" : "border-b"
-                      }`}
-                    >
-                      <span className="font-[600] mr-2">
-                        {Object.keys(detail)}:
-                      </span>
-                      {Object.values(detail)}
-                    </li>
-                  );
-                })}
-                <ButtonComp
-                  text="Download CV"
-                  className="mt-3"
-                  onClick={() => {
-                    handleDownloadCV();
-                  }}
-                />
-              </div> */}
             </div>
           </Layout>
           <Layout id="resume" transparent={false}>
@@ -374,12 +372,16 @@ export default function Home() {
             <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:gap-6  gap-8">
               {projects?.map((project, index) => {
                 return (
-                  <ProjectCard
-                    key={index}
-                    image={project.image}
-                    liveLink={project.liveLink}
-                    githubLink={project.githubLink}
-                  />
+                  <>
+                    <ProjectCard
+                      key={index}
+                      image={project.image}
+                      liveLink={project.liveLink}
+                      githubLink={project.githubLink}
+                      setOpen={setOpen}
+                      github={github}
+                    />
+                  </>
                 );
               })}
             </div>

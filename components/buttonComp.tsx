@@ -37,7 +37,8 @@ const ButtonComp = ({
       max-md:py-[0.4rem]
       max-md:px-[1.3rem]
       rounded-[50rem]
-      font-medium
+      font-medium 
+      outline-none
       
       ${className}
     `}
