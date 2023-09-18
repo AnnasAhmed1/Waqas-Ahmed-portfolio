@@ -17,6 +17,7 @@ import Navbar from "@/components/navbar";
 // images
 import car_app from "../assets/projects/car_flutter_app.png";
 import greengen from "../assets/projects/green_gen.png";
+import weather_app from "../assets/projects/weather_app.png";
 // import greengenVideo from "../assets/projects/videos/green_gen.mp4";
 
 // icons
@@ -29,12 +30,26 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import CallIcon from "@mui/icons-material/Call";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Modal } from "@mui/material";
+import LogoCard from "@/components/logoCard";
+
+import flutterIcon from "../assets/icons/flutter.png";
+import flutterProviderIcon from "../assets/icons/flutter_provider.png";
+import apiIntegration from "../assets/icons/api_integration.png";
+import googleMaps from "../assets/icons/google_maps.png";
+import dart from "../assets/icons/dart.png";
+import firebase from "../assets/icons/firebase.png";
+import githubIcon from "../assets/icons/github.png";
+import leetcode from "../assets/icons/leetcode.png";
+import python from "../assets/icons/python.png";
+import problemSolving from "../assets/icons/problem_solving.png";
+
+// remove portfolio link
+// add product
+// tab components
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
   const navs = [
     { title: "Home", id: "home", active: false },
     { title: "About Me", id: "about", active: false },
@@ -79,6 +94,53 @@ export default function Home() {
     { title: "Google Maps/API integration", percentage: 65 },
     { title: "Github", percentage: 50 },
   ];
+
+  const skillsLogos = [
+    {
+      image: flutterIcon,
+      logoName: "Flutter",
+    },
+    {
+      image: dart,
+      logoName: "Dart",
+    },
+    {
+      image: googleMaps,
+      logoName: "Google Maps",
+    },
+    {
+      image: apiIntegration,
+      logoName: "API Integration",
+    },
+    {
+      image: flutterProviderIcon,
+      logoName: "Provider",
+    },
+    {
+      image: flutterProviderIcon,
+      logoName: "Stacked",
+    },
+    {
+      image: firebase,
+      logoName: "Firebase",
+    },
+    {
+      image: githubIcon,
+      logoName: "Github",
+    },
+    {
+      image: python,
+      logoName: "Python",
+    },
+    {
+      image: leetcode,
+      logoName: "Leet Code",
+    },
+    // {
+    //   image: problemSolving,
+    //   logoName: "Problem Solving",
+    // },
+  ];
   const socialLinks = [
     {
       icon: <WhatsAppIcon className="hover:text-green-600" fontSize="small" />,
@@ -101,13 +163,18 @@ export default function Home() {
   const projects = [
     {
       image: car_app,
-      liveLink: "https://fizzinnovations-portfolio.vercel.app/",
       githubLink: "Fizzinnovations_portfolio",
+      video: "car_app",
     },
     {
       image: greengen,
-      liveLink: "https://appswaves-3a882.web.app/",
       githubLink: "Appswaves_project",
+      video: "greengen_app",
+    },
+    {
+      image: weather_app,
+      githubLink: "weather-app",
+      video: "weather_app",
     },
   ];
 
@@ -173,31 +240,6 @@ export default function Home() {
   return (
     <>
       <main className="flex">
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-          className="flex justify-center items-center border border-customPrimary outline-none bottom-0 absolute/"
-          keepMounted
-          disableScrollLock={true}
-        >
-          <div className="bg-black py-10 px-32 rounded-md outline-none border border-customPrimary">
-            <video
-              style={{
-                objectFit: "contain",
-                // backgroundColor: "var(--dark)",
-                width: "400px",
-                height: "400px",
-              }}
-              controls
-              // width="100%"
-            >
-              <source src="/video1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </Modal>
         <ToastContainer />
         <Navbar
           navs={navs}
@@ -344,14 +386,15 @@ export default function Home() {
               <h1 className="font-[600] text-2xl max-md:text-xl my-6">
                 My Skills
               </h1>
-              <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:gap-6 gap-x-12 gap-y-8">
-                {skills?.map((skill, index) => {
+              <div className="grid grid-cols-6 max-xl:grid-cols-5 max-md:grid-cols-4 max-md:gap-3 items-start gap-x-12 gap-y-8">
+                {skillsLogos?.map((skill, index) => {
                   return (
-                    <SkillComp
-                      key={index}
-                      title={skill.title}
-                      percentage={skill?.percentage?.toString()}
-                    />
+                    <LogoCard image={skill.image} text={skill.logoName} />
+                    // <SkillComp
+                    //   key={index}
+                    //   title={skill.title}
+                    //   percentage={skill?.percentage?.toString()}
+                    // />
                   );
                 })}
               </div>
@@ -376,9 +419,8 @@ export default function Home() {
                     <ProjectCard
                       key={index}
                       image={project.image}
-                      liveLink={project.liveLink}
+                      video={project.video}
                       githubLink={project.githubLink}
-                      setOpen={setOpen}
                       github={github}
                     />
                   </>
