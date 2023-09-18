@@ -339,9 +339,9 @@ export default function Home() {
                   technologies and a keen eye for detail, I am dedicated to
                   delivering high-quality Flutter applications that captivate
                   users and bring ideas to life in the mobile space. Whether
-                  it&apos;s crafting beautiful UI designs or implementing complex
-                  functionality, I am committed to turning your mobile app
-                  vision into a reality.
+                  it&apos;s crafting beautiful UI designs or implementing
+                  complex functionality, I am committed to turning your mobile
+                  app vision into a reality.
                 </p>
               </div>
             </div>
@@ -389,7 +389,11 @@ export default function Home() {
               <div className="grid grid-cols-6 max-xl:grid-cols-5 max-md:grid-cols-4 max-md:gap-3 items-start gap-x-12 gap-y-8">
                 {skillsLogos?.map((skill, index) => {
                   return (
-                    <LogoCard image={skill.image} text={skill.logoName} />
+                    <LogoCard
+                      key={index}
+                      image={skill.image}
+                      text={skill.logoName}
+                    />
                     // <SkillComp
                     //   key={index}
                     //   title={skill.title}
