@@ -339,7 +339,7 @@ export default function Home() {
                   technologies and a keen eye for detail, I am dedicated to
                   delivering high-quality Flutter applications that captivate
                   users and bring ideas to life in the mobile space. Whether
-                  it's crafting beautiful UI designs or implementing complex
+                  it&apos;s crafting beautiful UI designs or implementing complex
                   functionality, I am committed to turning your mobile app
                   vision into a reality.
                 </p>
