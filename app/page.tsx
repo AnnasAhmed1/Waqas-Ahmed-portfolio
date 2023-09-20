@@ -58,7 +58,7 @@ export default function Home() {
     { title: "Contact", id: "contact", active: false },
   ];
   const phoneNumber = "+92 346 1900055";
-  const email = "wa02263@gmail.com";
+  const email = "waqasahmed2790@gmail.com";
   const linkedin = "waqas-ahmed-520ba11b6";
   const github = "WaqasAhmed123";
   const profession = "Flutter Developer";
@@ -70,7 +70,7 @@ export default function Home() {
   ];
   const education = [
     {
-      year: "2021-2025",
+      year: "2021-Present",
       title: "BSCS",
       institue: "University Of Karachi",
       details: "Currently pursuing third year",
@@ -163,12 +163,12 @@ export default function Home() {
   const projects = [
     {
       image: car_app,
-      githubLink: "Fizzinnovations_portfolio",
+      githubLink: "car-app",
       video: "car_app",
     },
     {
       image: greengen,
-      githubLink: "Appswaves_project",
+      githubLink: "greengen-mobile-app",
       video: "greengen_app",
     },
     {

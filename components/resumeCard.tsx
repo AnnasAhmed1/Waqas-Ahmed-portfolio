@@ -12,8 +12,8 @@ const ResumeCard = ({
         {time}
       </p>
       <h1 className="text-xl max-md:text-lg mb-1 font-[600]">{title}</h1>
-      <p className="text-[#dc3545]">{institute}</p>
-      <p className="m-0">{details}</p>
+      <p className="text-[#dc3545] m-0">{institute}</p>
+      {/* <p className="m-0">{details}</p> */}
     </div>
   );
 };
