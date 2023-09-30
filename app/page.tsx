@@ -163,8 +163,8 @@ export default function Home() {
   const projects = [
     {
       image: car_app,
-      githubLink: "car-app",
-      video: "greengen-mobile-app",
+      githubLink: "greengen-mobile-app",
+      video: "car_app",
     },
     {
       image: greengen,
