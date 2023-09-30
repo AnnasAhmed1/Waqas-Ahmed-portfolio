@@ -164,7 +164,7 @@ export default function Home() {
     {
       image: car_app,
       githubLink: "car-app",
-      video: "car_app",
+      video: "greengen-mobile-app",
     },
     {
       image: greengen,
