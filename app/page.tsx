@@ -84,16 +84,16 @@ export default function Home() {
       details: "More than 1 year experience in Freelancing",
     },
   ];
-  const skills = [
-    { title: "Flutter", percentage: 80 },
-    { title: "Firebase", percentage: 65 },
-    { title: "Stacked", percentage: 70 },
-    { title: "Provide", percentage: 70 },
-    { title: "Dart", percentage: 80 },
-    { title: "Python", percentage: 75 },
-    { title: "Google Maps/API integration", percentage: 65 },
-    { title: "Github", percentage: 50 },
-  ];
+  // const skills = [
+  //   { title: "Flutter", percentage: 80 },
+  //   { title: "Firebase", percentage: 65 },
+  //   { title: "Stacked", percentage: 70 },
+  //   { title: "Provide", percentage: 70 },
+  //   { title: "Dart", percentage: 80 },
+  //   { title: "Python", percentage: 75 },
+  //   { title: "Google Maps/API integration", percentage: 65 },
+  //   { title: "Github", percentage: 50 },
+  // ];
 
   const skillsLogos = [
     {
